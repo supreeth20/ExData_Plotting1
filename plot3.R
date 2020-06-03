@@ -1,7 +1,7 @@
 plot3 <- function(){
   library(lubridate)
   data = read.table("data/household_power_consumption.txt",sep=";",header=TRUE)
-  timedate = strptime(paste(data$Date,data$Time,sep = " "),"%Y/%m/%d %H:%M:%S")
+  timedate = strptime(paste(data$Date,data$Time,sep = " "),"%d/%m/%Y %H:%M:%S")
   data = cbind(data,timedate)
   data$Date = as.Date(data$Date,"%d/%m/%Y")
   data$Time = hms(data$Time)
